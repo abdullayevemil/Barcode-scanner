@@ -3,8 +3,8 @@ import {Link} from 'expo-router';
 
 export default function App() {
     return (
-        <View style={styles.container}>
-            <Text>Welcome to Barcode!</Text>
+        <View className='flex-1 justify-center items-center bg-white'>
+            <Text className="text-3xl">Welcome to Barcode!</Text>
             
             <StatusBar style='auto' />
             
@@ -12,12 +12,3 @@ export default function App() {
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-})
