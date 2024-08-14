@@ -3,10 +3,11 @@ import {React} from 'react';
 import {Tabs} from "expo-router";
 import Home from "./home";
 import {icons} from '../../constants';
+import profile from "../../assets/icons/profile.png";
 
 const TabIcon = ({icon, color, name, focused}) => {
     return (
-        <View>
+        <View className='justify-center items-center'>
             <Image
             source={icon}
             resizeMode="contain"
@@ -35,6 +36,28 @@ const TabsLayout = () => {
                     headerShown: false,
                     tabBarIcon: ({color, focused}) => (
                         <TabIcon icon={icons.home} color={color} focused={focused} name='Home'/>
+                    )
+                }}
+            />
+            
+            <Tabs.Screen
+                name="scan"
+                options={{
+                    title: 'Scan',
+                    headerShown: false,
+                    tabBarIcon: ({color, focused}) => (
+                        <TabIcon icon={icons.scanner} color={color} focused={focused} name='Scan'/>
+                    )
+                }}
+            />
+            
+            <Tabs.Screen
+                name="profile"
+                options={{
+                    title: 'Profile',
+                    headerShown: false,
+                    tabBarIcon: ({color, focused}) => (
+                        <TabIcon icon={icons.profile} color={color} focused={focused} name='Profile'/>
                     )
                 }}
             />

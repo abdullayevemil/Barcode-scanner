@@ -1,14 +1,50 @@
-import {StatusBar, StyleSheet, Text, View} from "react-native";
+import {Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View} from "react-native";
 import {Link} from 'expo-router';
+import images from "../constants/images";
+import { Redirect, router } from "expo-router";
+import Images from "../constants/images";
+import CustomButton from "../components/CustomButton";
 
 export default function App() {
     return (
-        <View className='flex-1 justify-center items-center bg-white'>
-            <Text className="text-3xl font-pblack">Welcome to Barcode!</Text>
-            
-            <StatusBar style='auto' />
-            
-            <Link href='/home' style={{color: 'blue'}}>Home-&gt;</Link>
-        </View>
+        <SafeAreaView style={styles.mainView} className="h-full">
+            <ScrollView contentContainerStyle={{height: '100%'}}>
+                <View className='w-full justify-center items-center min-h-[85vh] px-4'>
+                    <View className='justify-center items-center flex flex-row gap-0.5'>
+                        <Image className='w-24 h-24' source={images.logo}></Image>
+                        
+                        <Text style={styles.name} className='font-psemibold text-4xl'>SC4N</Text>
+                    </View>
+                    
+                    <Image className='w-80 h-80' source={images.cards}/>
+
+                    <Text className="text-2xl text-white font-bold text-center">
+                        Welcome! Every <Text style={styles.name} className="text-secondary-200">SC4N</Text>{"\n"}
+                        is a step towards a healthier life{" "}
+                    </Text>
+
+                    <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">
+                        Empower your journey to better health by making rational choices with every scan
+                    </Text>
+
+                    <CustomButton
+                        title="Continue with Email"
+                        handlePress={() => router.push("/sign-in")}
+                        containerStyles="w-2/3 mt-7"
+                    />
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    mainView: {
+        backgroundColor: '#00364c',
+        paddingTop: 40,
+    },
+    
+    name: {
+        color: '#41BF49',
+    }
+})
