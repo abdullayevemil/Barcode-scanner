@@ -1,15 +1,13 @@
 import {Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View} from "react-native";
-import {Link} from 'expo-router';
 import images from "../constants/images";
-import { Redirect, router } from "expo-router";
-import Images from "../constants/images";
+import { router } from "expo-router";
 import CustomButton from "../components/CustomButton";
 
 export default function App() {
     return (
         <SafeAreaView style={styles.mainView} className="h-full">
             <ScrollView contentContainerStyle={{height: '100%'}}>
-                <View className='w-full justify-center items-center min-h-[85vh] px-4'>
+                <View className='w-full justify-items-start items-center min-h-[85vh] px-4'>
                     <View className='justify-center items-center flex flex-row gap-0.5'>
                         <Image className='w-24 h-24' source={images.logo}></Image>
                         
@@ -41,7 +39,7 @@ export default function App() {
 const styles = StyleSheet.create({
     mainView: {
         backgroundColor: '#00364c',
-        paddingTop: 40,
+        paddingTop: 50,
     },
     
     name: {
